@@ -15,7 +15,7 @@
 
 
     /* METHODS */
-    public function __construct($_title,$_director)
+    public function __construct($_director)
     {
       $this->title= $this->titleGen();
       $this->director=$_director;

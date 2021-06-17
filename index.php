@@ -3,11 +3,10 @@ require_once __DIR__."/Movie.php";
 
 $movies = [];
 for($i=0;$i<15;$i++){
-  $movies[]= new Movie("Titolo $i","Direttore $i");
+  $movies[]= new Movie("Direttore $i");
   $movies[$i]->setRelease_date("19-9-1997 $i");
 }
-
-
+/* var_dump($movies); */
 ?>
 
 <!DOCTYPE html>
