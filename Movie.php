@@ -2,7 +2,7 @@
 
   
   class Movie{
-    private static $posGeneri = ["Action","Comedy","Romance","Sci-fi","Cartoon","Western"];
+    private static $posGeneri = ["Action","Comedy","Romance","Sci-fi","Cartoon","Western","Cult","Horror","Historical","Documentary"];
     private static $counter=0;
 
     private $title;
@@ -23,13 +23,10 @@
       self::$counter++;
     }
 
-    private function setGenres(){
-      while(count($this->genres)<2){
-        $this->genres[] = self::$posGeneri[array_rand(self::$posGeneri)];
-      }
-    }
+   
     
 
+    /* GETTERS */
     /**
      * Get the value of title
      */ 
@@ -67,18 +64,29 @@
      *
      * @return  self
      */ 
-    public function setRelease_date($release_date)
+
+     /* SETTERS */
+
+     private function setGenres(){
+      /* CARICO DUE GENERI RANDOM PER FILM  */
+      while(count($this->genres)<3){
+        $this->genres[] = self::$posGeneri[array_rand(self::$posGeneri)];
+      }
+    }
+    public function setRelease_date()
     {
         $timestamp = mt_rand(1, time());
         $randomDate = date("d M Y", $timestamp);
         $this->release_date = $randomDate;
-        return $this;
     }
     private function titleGen(){
       $length = 10;    
       return substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'),1,$length);
       
     }
+
+
+    /* METHODS */
 
     /**
      * Get the value of counter
